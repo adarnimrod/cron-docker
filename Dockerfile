@@ -16,3 +16,4 @@ USER nobody
 CMD [ "supersonic", "/crontab" ]
 HEALTHCHECK CMD pgrep supersonic
 RUN supersonic -test /crontab
+ONBUILD RUN supersonic -test /crontab
