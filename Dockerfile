@@ -1,6 +1,6 @@
 FROM alpine:3.12 as downloader
-ARG URL=https://github.com/aptible/supercronic/releases/download/v0.1.9/supercronic-linux-amd64
-ARG SHA1SUM=5ddf8ea26b56d4a7ff6faecdd8966610d5cb9d85
+ARG URL=https://github.com/aptible/supercronic/releases/download/v0.1.11/supercronic-linux-amd64
+ARG SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
 WORKDIR /tmp
 RUN wget $URL && \
     echo "$SHA1SUM  supercronic-linux-amd64" > sha1.sum && \
