@@ -18,5 +18,5 @@ build:
   tags: [ns4.shore.co.il]
 
 push:
-  extends: .docker-push-shore
+  extends: .docker-push
   tags: [ns4.shore.co.il]
