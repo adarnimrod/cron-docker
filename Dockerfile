@@ -1,4 +1,4 @@
-FROM alpine:3.12 as downloader
+FROM alpine:3.13 as downloader
 ARG URL=https://github.com/aptible/supercronic/releases/download/v0.1.12/supercronic-linux-amd64
 ARG SHA1SUM=048b95b48b708983effb2e5c935a1ef8483d9e3e
 WORKDIR /tmp
@@ -8,7 +8,7 @@ RUN wget $URL && \
     install -m 755 supercronic-linux-amd64 /usr/local/bin/supersonic && \
     touch /crontab
 
-FROM alpine:3.12
+FROM alpine:3.13
 COPY --from=downloader /usr/local/bin/supersonic /usr/local/bin/supersonic
 COPY --from=downloader /crontab /crontab
 WORKDIR /tmp
