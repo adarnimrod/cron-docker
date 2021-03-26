@@ -18,14 +18,16 @@ FROM alpine:latest
 COPY --from=supersonic /usr/local/bin/supersonic /usr/local/bin/
 ```
 
-The other pattern is building on top of this image to run some periodic tasks
-like so:
+The other pattern is building on top of this image to run some periodic tasks.
+The `ONBUILD` commands will copy the crontab file and validate it. Just copy
+whatever scripts and install whatever packages you need, like so:
 
 ```
 FROM registry.shore.co.il/cron
-RUN apk add --update --no-cache aws-cli
-COPY crontab /crontab
 COPY script /usr/local/bin/
+USER root
+RUN apk add --update --no-cache aws-cli
+USER nobody
 ```
 
 ## License
